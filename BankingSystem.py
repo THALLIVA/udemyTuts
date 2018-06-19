@@ -1,4 +1,5 @@
 import collections
+import csv
 
 data = {
     "1": {"id": 1, "Name": "Darsh", "Age": 22, "Account": "Saving", "AccountNo": 1000, "Amount": 500}
@@ -30,6 +31,7 @@ def addCustomer():
 
 def delCustomer(id):
     data.pop(id)
+    printDataBase()
 
 
 
@@ -52,3 +54,32 @@ def TransferAmount():
     data1[CustId2]["Amount"] = data[CustId2]["Amount"] + amount
     printDataBase()
 
+def main():
+    print("*************************** WELCOME TO BANKING SYSTEM*********************")
+    choice = 0
+    while choice != 99:
+        choice = int(input("Enter 1.Add Customer "
+                           "2.Delete Customer "
+                           "3.Add Amount "
+                           "4.Tranfer Amount" ))
+
+        if choice == 1:
+            addCustomer()
+        elif choice == 2:
+            CustId = str(input("Enter the Customer Id to be Removed "))
+            delCustomer(CustId)
+        elif choice == 3:
+            addAmount()
+        elif choice == 4:
+            TransferAmount()
+
+        else:
+            print("Enter a valid Choice or Enter 99 to break the loop ")
+
+
+    w = csv.writer(open("output.csv", "w"))
+    for key, val in data.items():
+        w.writerow([key, val])
+
+
+main()
