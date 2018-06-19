@@ -23,6 +23,7 @@ def addCustomer():
         str(id): {"id": id, "Name": Name, "Age": Age, "Account": Account, "AccountNo": AccountNo, "Amount": Amount}
     }
     data.update(newCustomer)
+    print("Added a new Customer "+ Name)
     printDataBase()
 
 
@@ -31,5 +32,23 @@ def delCustomer(id):
     data.pop(id)
 
 
-addCustomer()
+
+def addAmount():
+    data1 = data.copy()
+    amount=int(input("Add amount to be added"))
+    CustId= str(input("Enter the Account to be added"))
+    data1[CustId]["Amount"] = data[CustId]["Amount"] + amount
+    data.update(data1)
+    printDataBase()
+
+
+def TransferAmount():
+    data1 =  data.copy()
+    amount = int(input("Add amount Transfered"))
+    CustId1 = str(input("Enter the Account to be deducted"))
+    CustId2 = str(input("Enter the Account to be added"))
+
+    data1[CustId1]["Amount"] = data[CustId1]["Amount"] - amount
+    data1[CustId2]["Amount"] = data[CustId2]["Amount"] + amount
+    printDataBase()
 
