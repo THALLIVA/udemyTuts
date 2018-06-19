@@ -76,7 +76,6 @@ def main():
         else:
             print("Enter a valid Choice or Enter 99 to break the loop ")
 
-
     w = csv.writer(open("output.csv", "w"))
     for key, val in data.items():
         w.writerow([key, val])
