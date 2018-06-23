@@ -9,7 +9,7 @@ def SendMsg():
     phone1 = "+XX"
 
 
-    EndMsg = "High Temp         Send Using AWS SNS"
+    EndMsg = "Hi Mummy         Send Using AWS SNS"
     Msg = client.publish(PhoneNumber=phone, Message=EndMsg)
     Msg1 = client.publish(PhoneNumber=phone1, Message=EndMsg)
 
