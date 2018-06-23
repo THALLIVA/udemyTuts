@@ -6,7 +6,7 @@ mqttc = mqtt.Client()
 def SendMsg():
     client = boto3.client("sns", "us-east-1")
     phone = "+919702007220"
-    phone1 = "+919870533756"
+    phone1 = "+XX"
 
 
     EndMsg = "High Temp         Send Using AWS SNS"
